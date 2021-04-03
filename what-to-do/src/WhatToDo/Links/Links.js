@@ -1,7 +1,5 @@
 import React from 'react';
-
 import LinkItem from './LinkItem';
-
 import Nav from 'react-bootstrap/Nav';
 
 class Links extends React.Component {

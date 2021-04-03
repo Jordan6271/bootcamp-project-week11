@@ -1,43 +1,29 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { addItem } from '../Actions/Actions';
 import Card from 'react-bootstrap/Card';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 
 class Add extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      id: 0,
-      description: ``,
-      completed: false
-    }
-  }
-
-  handleChange(event) {
-    this.setState({
-      description: event.target.value
-    });
-  }
-
-  submitHandler(event) {
-    event.preventDefault();
-    let newId = this.state.id + 1;
-    this.props.onsubmit(this.state.id, this.state.description, this.state.completed);
-    this.setState({
-      id: newId,
-      description: ``,
-      completed: false
-    });
-  }
 
   render() {
+    let input;
     return (
       <div className="add-area">
         <Card>
           <Card.Body>
-            <Form onSubmit={(event) => this.submitHandler(event)}>
-              <input type="text" name="description" value={this.state.description} onChange={(event) => this.handleChange(event)} />
-              <Button type="submit">Add Item</Button>
+            <Form onSubmit={event => {
+              event.preventDefault();
+              if (!input.value.trim()) {
+                return;
+              }
+              this.props.dispatch(addItem(input.value));
+              input.value = ``;
+            }}>
+              <input ref={node => {
+                input = node;
+              }} />
             </Form>
           </Card.Body>
         </Card>
@@ -46,4 +32,4 @@ class Add extends React.Component {
   }
 }
 
-export default Add;
+export default connect() (Add);

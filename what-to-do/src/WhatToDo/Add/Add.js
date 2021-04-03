@@ -24,6 +24,7 @@ class Add extends React.Component {
               <input ref={node => {
                 input = node;
               }} />
+              <Button type="submit">Add Item </Button>
             </Form>
           </Card.Body>
         </Card>

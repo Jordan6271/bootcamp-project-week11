@@ -1,4 +1,7 @@
 import React from 'react';
+
+import Add from './Add/Add';
+
 import Navbar from 'react-bootstrap/Navbar';
 import Container from 'react-bootstrap/Container';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -20,7 +23,7 @@ class WhatToDo extends React.Component {
             </Navbar.Brand>
           </Navbar>
           <Container>
-            Add Item <br />
+            <Add />
             Links <br />
             Visible Items
           </Container>

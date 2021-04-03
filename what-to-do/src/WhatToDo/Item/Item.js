@@ -9,7 +9,9 @@ class Item extends React.Component {
           {this.props.id}
         </td>
         <td>
-          <span onClick={this.props.onClick}>
+        <span onClick={this.props.onClick} style={{
+            color: this.props.completed ? `red` : `black`
+          }}>
             {this.props.description}
           </span>
         </td>

@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Add from './Add/Add';
+import Links from './Links/Links';
 
 import Navbar from 'react-bootstrap/Navbar';
 import Container from 'react-bootstrap/Container';
@@ -24,7 +25,7 @@ class WhatToDo extends React.Component {
           </Navbar>
           <Container>
             <Add />
-            Links <br />
+            <Links />
             Visible Items
           </Container>
       </div>

@@ -16,7 +16,7 @@ class VisibleItems extends React.Component {
           </thead>
           <tbody>
             {this.props.items.map((item) => (
-              <Item key={item.id} {...item} onclick={() => this.props.onItemClick(item.id)} removeClick={() => this.props.removeClick(item.id)} />
+              <Item key={item.id} {...item} onClick={() => this.props.onItemClick(item.id)} removeClick={() => this.props.removeClick(item.id)} />
             ))}
           </tbody>
         </Table>

@@ -9,12 +9,12 @@ class Item extends React.Component {
           {this.props.id}
         </td>
         <td>
-          <span onclick={this.props.onclick}>
+          <span onClick={this.props.onClick}>
             {this.props.description}
           </span>
         </td>
         <td>
-          <Button variant="danger" onclick={this.props.removeClick}>Remove</Button>
+          <Button variant="danger" onClick={this.props.removeClick}>Remove</Button>
         </td>
       </tr>
     );

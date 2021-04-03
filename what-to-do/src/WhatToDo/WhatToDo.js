@@ -16,6 +16,56 @@ class WhatToDo extends React.Component {
     }
   }
 
+  onRemove(itemId) {
+    const newState = this.state.todoItems.filter((_, id) => id !== itemId);
+    this.setState({
+      todoItems: newState
+    }, () => localStorage.setItem(`list`, JSON.stringify(this.state.todoItems)));
+  }
+
+  onItemClick(id) {
+    const newState = this.state.todoItems.map((item) => {
+      if (item.id === id) {
+        item.completed = !item.completed;
+      }
+      return item;
+    });
+    this.setState({
+      newState
+    }, () => localStorage.setItem(`list`, JSON.stringify(this.state.todoItems)));
+  }
+
+  clickLinks(filter) {
+    const todoItems = JSON.parse(localStorage.getItem(`list`));
+    let newState = [];
+    switch (filter) {
+      case "Completed":
+        newState = todoItems.filter((item) => item.completed === true);
+        this.setState({
+          todoItems: newState
+        });
+        break;
+      case "To Be Completed":
+        newState = todoItems.filter((item) => item.completed === false);
+        this.setState({
+          todoItems: newState
+        });
+        break;
+      default:
+        this.setState({
+          todoItems
+        });
+    }
+  }
+
+  updateToDoItems(id, description, completed) {
+    const todo = { id, description, completed };
+    this.setState((state) => ({
+      todoItems: state.todoItems.concat(todo),
+      nextId: id
+    }), () => localStorage.setItem(`list`, JSON.stringify(this.state.todoItems)));
+  }
+
   componentDidMount() {
     const todoItems = localStorage.getItem(`list`);
     this.setState({
@@ -32,9 +82,9 @@ class WhatToDo extends React.Component {
             </Navbar.Brand>
           </Navbar>
           <Container>
-            <Add />
-            <Links />
-            <VisibleItems items={this.state.todoItems}/>
+            <Add onsubmit={(id, description, completed) => this.updateToDoItems(id, description, completed)} />
+            <Links onclick={(filter) => this.clickLinks(filter)} />
+            <VisibleItems items={this.state.todoItems} onItemClick={(id) => this.onItemClick(id)} removeClick={(id) => this.onRemove(id)} />
           </Container>
       </div>
     );  

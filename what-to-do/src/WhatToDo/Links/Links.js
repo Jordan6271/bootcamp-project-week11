@@ -1,5 +1,6 @@
 import React from 'react';
-import LinkItem from './LinkItem';
+import LinkContainer from './LinkContainer';
+import { VisibilityFilters } from '../Actions/Actions';
 import Nav from 'react-bootstrap/Nav';
 
 class Links extends React.Component {
@@ -7,9 +8,9 @@ class Links extends React.Component {
     return (
       <div className="links-area">
         <Nav variant="tabs" defaultActiveKey="All">
-          <LinkItem onclick={(filter) => this.props.onclick(filter)} filter="All">All</LinkItem>
-          <LinkItem onclick={(filter) => this.props.onclick(filter)} filter="To Be Completed">To Be Completed</LinkItem>
-          <LinkItem onclick={(filter) => this.props.onclick(filter)} filter="Completed">Completed</LinkItem>
+          <LinkContainer filter={VisibilityFilters.SHOW_ALL}>All</LinkContainer>
+          <LinkContainer filter={VisibilityFilters.SHOW_ACTIVE}>To Be Completed</LinkContainer>
+          <LinkContainer filter={VisibilityFilters.SHOW_COMPLETED}>Completed</LinkContainer>
         </Nav>
       </div>
     );

@@ -35,7 +35,7 @@ class Add extends React.Component {
       <div className="add-area">
         <Card>
           <Card.Body>
-            <Form onsubmit={(event) => this.submitHandler(event)}>
+            <Form onSubmit={(event) => this.submitHandler(event)}>
               <input type="text" name="description" value={this.state.description} onChange={(event) => this.handleChange(event)} />
               <Button type="submit">Add Item</Button>
             </Form>

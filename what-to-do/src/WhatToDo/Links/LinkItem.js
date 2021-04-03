@@ -6,7 +6,7 @@ class LinkItem extends React.Component {
     return (
       <div className="link-item-area">
         <Nav.Item>
-          <Nav.Link eventKey={this.props.filter} onclick={() => this.props.onclick(this.props.filter)} disabled={this.props.active}>
+          <Nav.Link eventKey={this.props.filter} onClick={() => this.props.onclick(this.props.filter)} disabled={this.props.active}>
             {this.props.filter}
           </Nav.Link>
         </Nav.Item>

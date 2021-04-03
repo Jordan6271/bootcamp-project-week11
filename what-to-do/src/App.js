@@ -1,11 +1,12 @@
 import React from 'react';
 import './App.css';
+import WhatToDo from './WhatToDo/WhatToDo';
 
 class App extends React.Component {
   render() {
     return (
-      <div className="App">
-        What To Do?
+      <div className="app">
+        <WhatToDo />
       </div>
     );
   }

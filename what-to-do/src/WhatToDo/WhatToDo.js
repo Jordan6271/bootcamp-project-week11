@@ -2,7 +2,7 @@ import React from 'react';
 
 import Add from './Add/Add';
 import Links from './Links/Links';
-import VisibleItems from './Item/VisibleItems';
+import VisibleItemList from './Item/VisibleItemList';
 
 import Navbar from 'react-bootstrap/Navbar';
 import Container from 'react-bootstrap/Container';
@@ -14,25 +14,6 @@ class WhatToDo extends React.Component {
       this.state = {
         todoItems: []
     }
-  }
-
-  onRemove(itemId) {
-    const newState = this.state.todoItems.filter((_, id) => id !== itemId);
-    this.setState({
-      todoItems: newState
-    }, () => localStorage.setItem(`list`, JSON.stringify(this.state.todoItems)));
-  }
-
-  onItemClick(id) {
-    const newState = this.state.todoItems.map((item) => {
-      if (item.id === id) {
-        item.completed = !item.completed;
-      }
-      return item;
-    });
-    this.setState({
-      newState
-    }, () => localStorage.setItem(`list`, JSON.stringify(this.state.todoItems)));
   }
 
   clickLinks(filter) {
@@ -58,14 +39,6 @@ class WhatToDo extends React.Component {
     }
   }
 
-  updateToDoItems(id, description, completed) {
-    const todo = { id, description, completed };
-    this.setState((state) => ({
-      todoItems: state.todoItems.concat(todo),
-      nextId: id
-    }), () => localStorage.setItem(`list`, JSON.stringify(this.state.todoItems)));
-  }
-
   componentDidMount() {
     const todoItems = localStorage.getItem(`list`);
     this.setState({
@@ -82,9 +55,9 @@ class WhatToDo extends React.Component {
             </Navbar.Brand>
           </Navbar>
           <Container>
-            <Add onsubmit={(id, description, completed) => this.updateToDoItems(id, description, completed)} />
+            <Add />
             <Links onclick={(filter) => this.clickLinks(filter)} />
-            <VisibleItems items={this.state.todoItems} onItemClick={(id) => this.onItemClick(id)} removeClick={(id) => this.onRemove(id)} />
+            <VisibleItemList />
           </Container>
       </div>
     );  

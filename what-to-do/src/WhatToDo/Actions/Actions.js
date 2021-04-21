@@ -1,40 +1,41 @@
 export const ADD_ITEM = `ADD_ITEM`;
 export const REMOVE_ITEM = `REMOVE_ITEM`;
-export const TOGGLE_ITEM = `TOGGLE_ITEM`;
+export const TOGGLE_COMPLETED = `TOGGLE_COMPLETED`;
 export const SET_VISIBILITY_FILTER = `SET_VISIBILITY_FILTER`;
 
 export const VisibilityFilters = {
-  SHOW_ALL: "SHOW_ALL",
-  SHOW_COMPLETED: "SHOW_COMPLETED",
-  SHOW_ACTIVE: "SHOW_ACTIVE"
-}
+	SHOW_ALL: "SHOW_ALL",
+	SHOW_COMPLETED: "SHOW_COMPLETED",
+	SHOW_ACTIVE: "SHOW_ACTIVE",
+};
 
-let nextItemId = 0
+let nextItemId = 0;
 export function addItem(text) {
-  return {
-    type: ADD_ITEM,
-    id: nextItemId++,
-    text
-  }
+	return {
+		type: ADD_ITEM,
+		id: nextItemId++,
+		text,
+	};
 }
 
-export function toggleItem(id) {
-  return {
-    type: TOGGLE_ITEM,
-    id
-  }
+export function toggleCompleted(id, completed) {
+	return {
+		type: TOGGLE_COMPLETED,
+		id,
+		completed,
+	};
 }
 
 export function setVisibilityFilter(filter) {
-  return {
-    type: SET_VISIBILITY_FILTER,
-    filter
-  }
+	return {
+		type: SET_VISIBILITY_FILTER,
+		filter,
+	};
 }
 
 export function removeItem(id) {
-  return {
-    type: REMOVE_ITEM,
-    id
-  }
+	return {
+		type: REMOVE_ITEM,
+		id,
+	};
 }

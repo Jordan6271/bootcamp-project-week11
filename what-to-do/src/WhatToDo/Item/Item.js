@@ -32,6 +32,7 @@ class Item extends React.Component {
 					<Checkbox
 						onClick={this.props.onCompletedClick}
 						defaultChecked={this.props.completed}
+						className="pl-5"
 					/>
 				</td>
 				<td>

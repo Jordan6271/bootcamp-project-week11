@@ -10,7 +10,7 @@ class Add extends React.Component {
 		let input;
 		return (
 			<div className="add-area">
-				<Card>
+				<Card style={{ border: "none" }}>
 					<Card.Body>
 						<Form
 							onSubmit={(event) => {
@@ -23,11 +23,19 @@ class Add extends React.Component {
 							}}
 						>
 							<input
+								id="input"
 								ref={(node) => {
 									input = node;
 								}}
+								className="mr-3 mt-1 pl-2 w-25"
+								placeholder="Add an item to your list..."
 							/>
-							<Button type="submit">Add Item </Button>
+							<Button
+								type="submit"
+								style={{ marginTop: "-0.25rem" }}
+							>
+								Add Item{" "}
+							</Button>
 						</Form>
 					</Card.Body>
 				</Card>

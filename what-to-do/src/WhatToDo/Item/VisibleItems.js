@@ -10,9 +10,9 @@ class VisibleItems extends React.Component {
 					<thead>
 						<tr>
 							<th>ID</th>
-							<th>Item</th>
+							<th className="w-50">Item</th>
 							<th>Completed</th>
-							<th>Remove</th>
+							<th className="pl-4">Remove</th>
 						</tr>
 					</thead>
 					<tbody>

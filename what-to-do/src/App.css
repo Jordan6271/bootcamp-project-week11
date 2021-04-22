@@ -1,0 +1,15 @@
+#input::-webkit-input-placeholder {
+    font-style: italic;
+}
+
+#input::-moz-placeholder {
+    font-style: italic;
+}
+
+#input::-ms-placeholder {
+    font-style: italic;
+}
+
+#input::placeholder {
+    font-style: italic;
+}

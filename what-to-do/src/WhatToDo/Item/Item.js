@@ -6,11 +6,23 @@ class Item extends React.Component {
 	render() {
 		return (
 			<tr>
-				<td>{this.props.id}</td>
 				<td>
 					<span
 						style={{
-							color: this.props.completed ? `green` : `black`,
+							color: this.props.completed
+								? `rgba(0,0,0,0.5)`
+								: `black`,
+						}}
+					>
+						{this.props.id}
+					</span>
+				</td>
+				<td>
+					<span
+						style={{
+							color: this.props.completed
+								? `rgba(0,0,0,0.5)`
+								: `black`,
 						}}
 					>
 						{this.props.description}

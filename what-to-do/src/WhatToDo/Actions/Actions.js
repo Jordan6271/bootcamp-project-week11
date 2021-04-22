@@ -9,11 +9,9 @@ export const VisibilityFilters = {
 	SHOW_ACTIVE: "SHOW_ACTIVE",
 };
 
-let nextItemId = 0;
 export function addItem(text) {
 	return {
 		type: ADD_ITEM,
-		id: nextItemId++,
 		text,
 	};
 }

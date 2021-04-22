@@ -19,14 +19,26 @@ function visibilityFilterReducer(state = VisibilityFilters.SHOW_ALL, action) {
 function itemReducer(state = [], action) {
 	switch (action.type) {
 		case ADD_ITEM:
-			return [
-				...state,
-				{
-					id: action.id,
-					description: action.text,
-					completed: false,
-				},
-			];
+			if (state.length !== 0) {
+				let newId = state[state.length - 1].id;
+				return [
+					...state,
+					{
+						id: newId + 1,
+						description: action.text,
+						completed: false,
+					},
+				];
+			} else {
+				return [
+					...state,
+					{
+						id: 0,
+						description: action.text,
+						completed: false,
+					},
+				];
+			}
 		case REMOVE_ITEM:
 			return state.filter((value) => {
 				return action.id !== value.id;
